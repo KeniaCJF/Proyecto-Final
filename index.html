@@ -9,7 +9,6 @@
     <!-- Css -->
     <link href="./pages/index.css" rel="stylesheet" />
   </head>
-
   <body class="site">
     <div class="site__wrapper">
       <header class="banner site__section">
@@ -22,7 +21,11 @@
       <!-- Main view of the page/ Vista de la pagina-->
       <main class="main-content">
         <section class="traveler-profile site__section">
-          <img class="traveler-profile__image" src="images/pug-avatar.jpg" alt="Avatar" />
+          <img
+            class="traveler-profile__image"
+            src="images/pug-avatar.jpg"
+            alt="Avatar"
+          />
           <div class="traveler-profile__details">
             <h1 class="traveler-profile__name">
               Kenia Carolina Jauregui Fernandez
@@ -49,8 +52,8 @@
       <footer class="footer site__section">
         <p class="footer__text">© Magical Mexico</p>
       </footer>
-    <!-- Profile modal / Modal del Perfil -->
-       <div class="modal" id="modal-profile">
+      <!-- Profile modal / Modal del Perfil -->
+      <div class="modal" id="modal-profile">
         <div class="modal__content">
           <button
             aria-label="Close modal"
@@ -58,10 +61,10 @@
             type="button"
           ></button>
           <h3 class="modal__title">Edit profile</h3>
-          <form class="modal__form" id="form-new-place" novalidate>
+          <form class="modal__form" id="form-edit-profile" novalidate>
             <label class="modal__field">
               <input
-                id="place-title"
+                id="profile-title"
                 class="modal__input modal__input_type_title"
                 name="place-name"
                 placeholder="Title"
@@ -70,7 +73,7 @@
                 required
                 type="text"
               />
-              <span class="modal__error" id="place-title-error"></span>
+              <span class="modal__error" id="profile-title-error"></span>
             </label>
             <label class="modal__field">
               <input
@@ -87,7 +90,7 @@
           </form>
         </div>
       </div>
-      <!--  Add new places modal/ Modal para añadir nuevos lugares-->
+      <!-- Add new places modal/ Modal para añadir nuevos lugares-->
       <div class="modal" id="modal-new-place">
         <div class="modal__content">
           <button
@@ -161,4 +164,3 @@
   <!-- JS file -->
   <script src="./scripts/script.js"></script>
 </html>
-

@@ -27,6 +27,14 @@ const modalProfile = document.querySelector("#modal-profile");
 const travelerProfileEditBtn = document.querySelector(
   ".traveler-profile__edit-btn"
 );
+const formEditProfile = document.querySelector("#form-edit-profile");
+const profileNameInput = document.querySelector("#profile-title");
+const profileBioInput = document.querySelector("#profile-description");
+
+// Function to toggle a modal open/close (añadido)
+function toggleModal(modal) {
+  modal.classList.toggle("modal_is-opened");
+}
 
 //The function 'Some' only works with arrays.
 // Function to check if any input in the form is invalid.
@@ -114,6 +122,7 @@ const travelerProfileDetails = document.querySelector(
 const travelerProfileName = travelerProfileDetails.querySelector(
   ".traveler-profile__name"
 );
+const travelerProfileBio = travelerProfileDetails.querySelector(".traveler-profile__bio");
 
 const placesGalleryList = document.querySelector(".places-gallery__list");
 const ModalNewPlace = document.querySelector("#modal-new-place");
@@ -122,7 +131,7 @@ const modalsClose = Array.from(document.querySelectorAll(".modal__close"));
 
 //This function opens modal Newplace
 travelerProfileAddPlaceButton.addEventListener("click", () => {
-  ModalNewPlace.classList.toggle("modal_is-opened");
+  toggleModal(ModalNewPlace); 
 });
 
 // Function to add new images while Modal Newplace is open
@@ -141,11 +150,19 @@ ModalNewPlace.addEventListener("submit", (evt) => {
 
 console.dir(travelerProfileDetails);
 
-// Abrir modal de edición de perfil
 //Open the Edit perfil modal
 travelerProfileEditBtn.addEventListener("click", () => {
-  modalProfile.classList.toggle("modal_is-opened");
-  //console.log("click en el lapizito");
+  profileNameInput.value = travelerProfileName.textContent;
+  profileBioInput.value = travelerProfileBio.textContent;
+  toggleModal(modalProfile);
+});
+
+// Save changes
+formEditProfile.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  travelerProfileName.textContent = profileNameInput.value;
+  travelerProfileBio.textContent = profileBioInput.value;
+  toggleModal(modalProfile); 
 });
 
 // Function to close a modal. Works only for modals that share this class
@@ -153,8 +170,7 @@ modalsClose.forEach((modalClose) => {
   modalClose.addEventListener("click", (evt) => {
     console.log("Esta funcionando");
     let modal = evt.target.closest(".modal");
-    modal.classList.toggle("modal_is-opened");
-    //ModalNewPlace.classList.toggle("modal_is-opened");
+    toggleModal(modal);
   });
 });
 
